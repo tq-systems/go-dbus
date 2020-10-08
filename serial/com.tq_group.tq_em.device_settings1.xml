@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/tq_group/tq_em/device_settings1">
+  <interface name="org.freedesktop.DBus.Introspectable">
+    <method name="Introspect">
+      <arg name="out" type="s" direction="out"/>
+    </method>
+  </interface>
+  <interface name="com.tq_group.tq_em.device_settings1.SerialControl">
+    <method name="BindInterface">
+      <arg type="s" direction="in"/>
+      <arg type="s" direction="in"/>
+      <arg type="s" direction="in"/>
+      <arg type="b" direction="in"/>
+    </method>
+    <method name="GetInterface">
+      <arg type="s" direction="in"/>
+      <arg type="s" direction="in"/>
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="ListInterfaces">
+      <arg type="s" direction="in"/>
+      <arg type="a{sy}" direction="out"/>
+    </method>
+    <method name="Reset">
+      <arg type="s" direction="in"/>
+      <arg type="s" direction="in"/>
+    </method>
+    <method name="SetOperState">
+      <arg type="s" direction="in"/>
+      <arg type="s" direction="in"/>
+      <arg type="y" direction="in"/>
+    </method>
+    <method name="UnbindInterface">
+      <arg type="s" direction="in"/>
+      <arg type="s" direction="in"/>
+    </method>
+  </interface>
+</node>
