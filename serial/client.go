@@ -25,7 +25,7 @@ import (
 
 	"github.com/godbus/dbus"
 
-	"vgitlab01.tq-net.de/tq-em/libs/utils.git/serial/device_settings"
+	"vgitlab01.tq-net.de/tq-em/libs/dbus.git/serial/device_settings"
 )
 
 const (

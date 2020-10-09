@@ -26,7 +26,7 @@ import (
 
 	"github.com/godbus/dbus"
 
-	"vgitlab01.tq-net.de/tq-em/libs/utils.git/notification/health_check"
+	"vgitlab01.tq-net.de/tq-em/libs/dbus.git/notification/health_check"
 )
 
 const (
