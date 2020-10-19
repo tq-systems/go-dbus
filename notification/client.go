@@ -18,6 +18,7 @@ package notification
 //     org.freedesktop.DBus.Introspectable.Introspect \
 //     > com.tq_group.tq_em.health_check1.xml
 //
+//go:generate sh -c "go get -u vgitlab01.tq-net.de/tq-em/tools/dbus-codegen-go.git/cmd/dbus-codegen-go@switch-2-gomod"
 //go:generate sh -c "dbus-codegen-go -prefix com.tq_group.tq_em.health_check1 -package health_check com.tq_group.tq_em.health_check1.xml > health_check/health_check1.go"
 
 import (
