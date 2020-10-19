@@ -18,7 +18,7 @@ package device_settings
 import (
 	"log"
 
-	"github.com/godbus/dbus"
+	"github.com/godbus/dbus/v5"
 )
 
 const (

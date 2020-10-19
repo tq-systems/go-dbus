@@ -23,7 +23,7 @@ package serial
 import (
 	"encoding/json"
 
-	"github.com/godbus/dbus"
+	"github.com/godbus/dbus/v5"
 
 	"vgitlab01.tq-net.de/tq-em/libs/dbus.git/serial/device_settings"
 )
