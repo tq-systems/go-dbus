@@ -1,0 +1,4 @@
+github.com/godbus/dbus/v5 v5.0.3 h1:ZqHaoEF7TBzh4jzPmqVhE/5A1z9of6orkAe5uHoAeME=
+github.com/godbus/dbus/v5 v5.0.3/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5xrFpKfA=
+vgitlab01.tq-net.de/tq-em/tools/dbus-codegen-go.git v0.0.0-20201019154446-ebd8936311fd h1:0AJBbaby3rvUmcd0VYEkc7bIkPOJoEnU0TcCKMJxdgE=
+vgitlab01.tq-net.de/tq-em/tools/dbus-codegen-go.git v0.0.0-20201019154446-ebd8936311fd/go.mod h1:skR8xZu3A8r9AvD5O85rOXG4dSusXvQtq1jNEE7jYHI=

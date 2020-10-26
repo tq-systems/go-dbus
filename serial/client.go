@@ -18,12 +18,13 @@ package serial
 //     org.freedesktop.DBus.Introspectable.Introspect \
 //     > com.tq_group.tq_em.device_settings1.xml
 //
+//go:generate sh -c "go get -u vgitlab01.tq-net.de/tq-em/tools/dbus-codegen-go.git/cmd/dbus-codegen-go@switch-2-gomod"
 //go:generate sh -c "dbus-codegen-go -prefix com.tq_group.tq_em.device_settings1 -package device_settings com.tq_group.tq_em.device_settings1.xml > device_settings/device_settings1.go"
 
 import (
 	"encoding/json"
 
-	"github.com/godbus/dbus"
+	"github.com/godbus/dbus/v5"
 
 	"vgitlab01.tq-net.de/tq-em/libs/dbus.git/serial/device_settings"
 )

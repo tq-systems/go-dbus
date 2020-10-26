@@ -1,0 +1,15 @@
+image: vgitlab01.tq-net.de:5005/tq-em/build/toolchain/amd64:latest
+
+Lint:
+  script:
+    - golint -set_exit_status $(go list ./...)
+  tags:
+    - tq-em-linux
+
+Code Generation:
+  script:
+    - go generate -v ./...
+    - git add :/
+    - git diff --exit-code HEAD
+  tags:
+    - tq-em-linux
