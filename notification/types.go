@@ -11,6 +11,8 @@ import (
 	"encoding/json"
 )
 
+//go:generate mockgen -destination=./mock_notification.go -package=notification vgitlab01.tq-net.de/tq-em/libs/dbus.git/notification Client
+
 // Client is the interface for a notification client that can send over dbus
 type Client interface {
 	Send(Severity, string, string) error
