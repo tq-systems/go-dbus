@@ -8,7 +8,7 @@ package notification
 
 // Go get dbus-codegen-go:
 //
-//   go get -u vgitlab01.tq-net.de/tq-em/tools/dbus-codegen-go.git/cmd/dbus-codegen-go
+//   go get -u github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go
 //
 // To get an updated com.tq_group.tq_em.health_check1.xml after changes to the exported interface:
 //
@@ -18,7 +18,7 @@ package notification
 //     org.freedesktop.DBus.Introspectable.Introspect \
 //     > com.tq_group.tq_em.health_check1.xml
 //
-//go:generate sh -c "go get -u vgitlab01.tq-net.de/tq-em/tools/dbus-codegen-go.git/cmd/dbus-codegen-go@switch-2-gomod"
+//go:generate sh -c "go get -u github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go"
 //go:generate sh -c "dbus-codegen-go -prefix com.tq_group.tq_em.health_check1 -package health_check com.tq_group.tq_em.health_check1.xml > health_check/health_check1.go"
 
 import (
@@ -27,7 +27,7 @@ import (
 
 	"github.com/godbus/dbus/v5"
 
-	"vgitlab01.tq-net.de/tq-em/libs/dbus.git/notification/health_check"
+	"github.com/tq-systems/go-dbus/notification/health_check"
 )
 
 const (
