@@ -6,6 +6,8 @@
 
 package serial
 
+//go:generate mockgen --build_flags=--mod=mod -destination=../mocks/serial/mock_serial.go -package=serial github.com/tq-systems/go-dbus/serial Client
+
 // BindState describes the bind state of a serial interface (in the context of a specific app)
 type BindState byte
 

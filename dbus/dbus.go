@@ -14,6 +14,8 @@ import (
 	"github.com/godbus/dbus/v5/introspect"
 )
 
+//go:generate mockgen --build_flags=--mod=mod -destination=../mocks/dbus/mock_dbus.go -package=dbus github.com/tq-systems/go-dbus/dbus Service
+
 // A Service provides a simple interface to make interfaces available over D-Bus
 type Service interface {
 	GetConnection() *dbus.Conn
