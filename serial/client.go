@@ -6,10 +6,6 @@
 
 package serial
 
-// Go get dbus-codegen-go:
-//
-//   go get -u github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go
-//
 // To get an updated com.tq_group.tq_em.device_settings1.xml after changes to the exported interface:
 //
 //   dbus-send --system --type=method_call --print-reply=literal \
@@ -18,7 +14,7 @@ package serial
 //     org.freedesktop.DBus.Introspectable.Introspect \
 //     > com.tq_group.tq_em.device_settings1.xml
 //
-//go:generate sh -c "go get -u github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go"
+//go:generate sh -c "go install -mod=readonly github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go@8d2871edd703f4f7822855a0d30c2e89cdfb580f"
 //go:generate sh -c "dbus-codegen-go -prefix com.tq_group.tq_em.device_settings1 -package device_settings com.tq_group.tq_em.device_settings1.xml > device_settings/device_settings1.go"
 
 import (

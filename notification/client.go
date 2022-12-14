@@ -6,10 +6,6 @@
 
 package notification
 
-// Go get dbus-codegen-go:
-//
-//   go get -u github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go
-//
 // To get an updated com.tq_group.tq_em.health_check1.xml after changes to the exported interface:
 //
 //   dbus-send --system --type=method_call --print-reply=literal \
@@ -18,7 +14,7 @@ package notification
 //     org.freedesktop.DBus.Introspectable.Introspect \
 //     > com.tq_group.tq_em.health_check1.xml
 //
-//go:generate sh -c "go get -u github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go"
+//go:generate sh -c "go install -mod=readonly github.com/tq-systems/go-dbus-codegen/cmd/dbus-codegen-go@8d2871edd703f4f7822855a0d30c2e89cdfb580f"
 //go:generate sh -c "dbus-codegen-go -prefix com.tq_group.tq_em.health_check1 -package health_check com.tq_group.tq_em.health_check1.xml > health_check/health_check1.go"
 
 import (

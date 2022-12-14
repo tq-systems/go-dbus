@@ -11,7 +11,7 @@ import (
 	"encoding/json"
 )
 
-//go:generate mockgen -destination=../mocks/notification/mock_notification.go -package=notification github.com/tq-systems/go-dbus/notification Client
+//go:generate mockgen --build_flags=--mod=mod -destination=../mocks/notification/mock_notification.go -package=notification github.com/tq-systems/go-dbus/notification Client
 
 // Client is the interface for a notification client that can send over dbus
 type Client interface {
