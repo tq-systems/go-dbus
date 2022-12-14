@@ -1,4 +1,4 @@
-image: vgitlab01.tq-net.de:5005/tq-em/build/toolchain/amd64:latest
+image: vgitlab01.tq-net.de:5005/tq-em/build/toolchain/amd64:v4.0.0-rc7_tc3.1.0
 
 Lint:
   script:
