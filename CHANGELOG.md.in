@@ -1,2 +1,3 @@
 ## [{{ version }}]
-
+### Changed
+- migrated from github.com/golang/mock to go.uber.org/mock
