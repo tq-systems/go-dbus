@@ -12,3 +12,7 @@ Lint:
 
 Code Generation:
   extends: .go-generate-code
+  before_script:
+    - mkdir /tmp/uber_mockgen
+    - GOBIN=/tmp/uber_mockgen go install go.uber.org/mock/mockgen@v0.4.0
+    - export PATH="/tmp/uber_mockgen:$PATH"
