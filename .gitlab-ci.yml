@@ -1,15 +1,18 @@
-image: vgitlab01.tq-net.de:5005/tq-em/build/toolchain/amd64:v4.0.0-rc7_tc3.1.0
+include:
+- project: tq-em/common/ci
+  file: apps.yml
+  ref: v4.1.8_tc3.15.5
+
+variables:
+  GO111MODULE: "on"
+  GOPRIVATE: "vgitlab01.tq-net.de"
 
 Lint:
-  script:
-    - golint -set_exit_status $(go list ./...)
-  tags:
-    - tq-em-linux
+  extends: .go-lint
 
 Code Generation:
-  script:
-    - go generate -v ./...
-    - git add :/
-    - git diff --exit-code HEAD
-  tags:
-    - tq-em-linux
+  extends: .go-generate-code
+  before_script:
+    - mkdir /tmp/uber_mockgen
+    - GOBIN=/tmp/uber_mockgen go install go.uber.org/mock/mockgen@v0.4.0
+    - export PATH="/tmp/uber_mockgen:$PATH"
