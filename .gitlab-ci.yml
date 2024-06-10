@@ -1,7 +1,7 @@
 include:
 - project: tq-em/common/ci
   file: apps.yml
-  ref: v4.1.8_tc3.15.5
+  ref: v5.0.1_tc5.0.0
 
 variables:
   GO111MODULE: "on"
@@ -12,7 +12,3 @@ Lint:
 
 Code Generation:
   extends: .go-generate-code
-  before_script:
-    - mkdir /tmp/uber_mockgen
-    - GOBIN=/tmp/uber_mockgen go install go.uber.org/mock/mockgen@v0.4.0
-    - export PATH="/tmp/uber_mockgen:$PATH"
