@@ -1,5 +1,1 @@
 ## [{{ version }}]
-### Changed
-- update golang version to 1.23.1
-- update golang version to 1.23.0
-
