@@ -1,6 +1,6 @@
 module github.com/tq-systems/go-dbus
 
-go 1.23.0
+go 1.23.1
 
 require (
 	github.com/godbus/dbus/v5 v5.1.0
