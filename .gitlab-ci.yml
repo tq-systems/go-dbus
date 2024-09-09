@@ -1,7 +1,7 @@
 include:
 - project: tq-em/common/ci
   file: apps.yml
-  ref: v5.0.1_tc5.0.0
+  ref: v5.1.1_tc5.0.5
 
 variables:
   GO111MODULE: "on"
