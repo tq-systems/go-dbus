@@ -21,6 +21,7 @@ type Service interface {
 	GetConnection() *dbus.Conn
 	Export(pathName string, interfaceName string, obj interface{})
 	Serve() error
+	Stop() error
 }
 
 type exportIface struct {
@@ -36,8 +37,18 @@ type service struct {
 
 // NewService opens a D-Bus system connection and registers under a given service name
 func NewService(serviceName string) (Service, error) {
-	conn, err := dbus.SystemBus()
+	conn, err := dbus.SystemBusPrivate()
 	if err != nil {
+		return nil, err
+	}
+
+	if err = conn.Auth(nil); err != nil {
+		_ = conn.Close()
+		return nil, err
+	}
+
+	if err = conn.Hello(); err != nil {
+		_ = conn.Close()
 		return nil, err
 	}
 
@@ -47,7 +58,7 @@ func NewService(serviceName string) (Service, error) {
 		return nil, err
 	}
 	if reply != dbus.RequestNameReplyPrimaryOwner {
-		return nil, errors.New("Name already taken")
+		return nil, errors.New("name already taken")
 	}
 
 	return &service{
@@ -63,7 +74,6 @@ func (srv *service) GetConnection() *dbus.Conn {
 // Export exports an object as a D-Bus interface, providing all necessary introspection information
 //
 // All public methods which have a *dbus.Error as their last return value will be exported.
-//
 func (srv *service) Export(pathName string, interfaceName string, obj interface{}) {
 	exports := srv.exports[pathName]
 
@@ -109,4 +119,10 @@ func (srv *service) Serve() error {
 	}
 
 	return nil
+}
+
+// Stop may be called in a defer after instantiating the dbus server
+// improving the shut down process of programs using the dbus server
+func (srv *service) Stop() error {
+	return srv.conn.Close()
 }
