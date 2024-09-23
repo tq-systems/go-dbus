@@ -1,3 +1,7 @@
+## [1.1.0] - 2024-09-23
+### Added
+- dbus interface now has a Stop function that may be called in a defer after instantiating the dbus server improving the shut down process of programs using the dbus server
+
 ## [1.0.2] - 2024-09-09
 ### Changed
 - update golang version to 1.23.1
