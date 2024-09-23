@@ -1,1 +1,3 @@
 ## [{{ version }}]
+### Changed
+- dbus interface now has a Stop function that may be called in a defer after instantiating the dbus server improving the shut down process of programs using the dbus server
