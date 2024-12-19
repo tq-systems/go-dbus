@@ -1,11 +1,11 @@
 include:
-- project: tq-em/common/ci
+- project: tq-em/build/docker/toolchain-ci
   file: apps.yml
   ref: v5.1.1_tc5.0.5
 
 variables:
   GO111MODULE: "on"
-  GOPRIVATE: "vgitlab01.tq-net.de"
+  GOPRIVATE: "vgitlab02.tq-net.de"
 
 Lint:
   extends: .go-lint
