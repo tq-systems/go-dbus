@@ -1,3 +1,5 @@
+## [1.1.1] - 2024-12-19
+
 ## [1.1.0] - 2024-09-23
 ### Added
 - dbus interface now has a Stop function that may be called in a defer after instantiating the dbus server improving the shut down process of programs using the dbus server
