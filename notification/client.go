@@ -25,6 +25,7 @@ package notification
 //go:generate sh -c "dbus-codegen-go -prefix com.tq_group.tq_em.health_check1 -package health_check com.tq_group.tq_em.health_check1.xml > health_check/health_check1.go"
 
 import (
+	"fmt"
 	"sync"
 	"time"
 
@@ -74,7 +75,11 @@ func (c *client) Send(severity Severity, msgCode string, msgText string) error {
 	c.mutex.Lock()
 	defer c.mutex.Unlock()
 
-	return c.notification.Send(c.app, byte(severity), msgCode, msgText, time.Now().Unix())
+	if severity < 0 || severity > 255 {
+		return fmt.Errorf("severity %d must be within 0-255", severity)
+	}
+
+	return c.notification.Send(c.app, byte(severity), msgCode, msgText, time.Now().Unix()) // #nosec G115 -- bounds checked above
 }
 
 func (c *client) GetPerformance() (out0 uint64, out1 uint64, out2 uint64, out3 uint64, out4 uint64, out5 uint64, out6 uint64, out7 uint64, err error) {
