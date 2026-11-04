@@ -1,7 +1,14 @@
 /*
- * utils - notification - client.go
- * Copyright (c) 2019, TQ-Systems GmbH
- * All rights reserved. For further information see LICENSE.
+ * Copyright (c) 2020-2026 TQ-Systems GmbH <license@tq-group.com>, D-82229
+ * Seefeld, Germany. All rights reserved.
+ * Author: Alexander Poegelt and the Energy Manager development team
+ *
+ * This software is licensed under the TQ-Systems Product Software License
+ * Agreement Version 1.0.3 or any later version.
+ * You can obtain a copy of the License Agreement in the TQS (TQ-Systems
+ * Software Licenses) folder on the following website:
+ * https://www.tq-group.com/en/support/downloads/tq-software-license-conditions/
+ * In case of any license issues please contact license@tq-group.com.
  */
 
 package notification
@@ -18,6 +25,7 @@ package notification
 //go:generate sh -c "dbus-codegen-go -prefix com.tq_group.tq_em.health_check1 -package health_check com.tq_group.tq_em.health_check1.xml > health_check/health_check1.go"
 
 import (
+	"fmt"
 	"sync"
 	"time"
 
@@ -67,7 +75,11 @@ func (c *client) Send(severity Severity, msgCode string, msgText string) error {
 	c.mutex.Lock()
 	defer c.mutex.Unlock()
 
-	return c.notification.Send(c.app, byte(severity), msgCode, msgText, time.Now().Unix())
+	if severity < 0 || severity > 255 {
+		return fmt.Errorf("severity %d must be within 0-255", severity)
+	}
+
+	return c.notification.Send(c.app, byte(severity), msgCode, msgText, time.Now().Unix()) // #nosec G115 -- bounds checked above
 }
 
 func (c *client) GetPerformance() (out0 uint64, out1 uint64, out2 uint64, out3 uint64, out4 uint64, out5 uint64, out6 uint64, out7 uint64, err error) {

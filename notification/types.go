@@ -1,7 +1,14 @@
 /*
- * utils - notification - types.go
- * Copyright (c) 2019, TQ-Systems GmbH
- * All rights reserved. For further information see LICENSE.
+ * Copyright (c) 2020-2026 TQ-Systems GmbH <license@tq-group.com>, D-82229
+ * Seefeld, Germany. All rights reserved.
+ * Author: Alexander Poegelt and the Energy Manager development team
+ *
+ * This software is licensed under the TQ-Systems Product Software License
+ * Agreement Version 1.0.3 or any later version.
+ * You can obtain a copy of the License Agreement in the TQS (TQ-Systems
+ * Software Licenses) folder on the following website:
+ * https://www.tq-group.com/en/support/downloads/tq-software-license-conditions/
+ * In case of any license issues please contact license@tq-group.com.
  */
 
 package notification

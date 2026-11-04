@@ -1,7 +1,7 @@
 include:
-- project: tq-em/build/docker/toolchain-ci
-  file: apps.yml
-  ref: v5.1.1_tc5.0.5
+- project: tq-em/build/docker/toolchain
+  file: ci/apps.yml
+  ref: v9.0.8-tc13.0.4
 
 variables:
   GO111MODULE: "on"
@@ -12,3 +12,9 @@ Lint:
 
 Code Generation:
   extends: .go-generate-code
+
+Go Sec Linter:
+  extends: .go-sec
+
+Gitleaks:
+  extends: .gitleaks
