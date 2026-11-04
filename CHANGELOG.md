@@ -1,3 +1,7 @@
+## [1.1.2] - 2026-11-04
+### Changed
+- Updated copyright license and file headers
+
 ## [1.1.1] - 2024-12-19
 
 ## [1.1.0] - 2024-09-23
